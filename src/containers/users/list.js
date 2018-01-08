@@ -25,7 +25,7 @@ class UsersList extends React.Component {
             <tr>
               <th>Имя</th>
               <th>Адрес</th>
-              <th>День рождмения</th>
+              <th>Дата рождения</th>
               <th>Город</th>
               <th>Телефон</th>
               <th className="text-small">Редактирование</th>
