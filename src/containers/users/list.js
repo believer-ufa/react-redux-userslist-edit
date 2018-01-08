@@ -16,8 +16,6 @@ class UsersList extends React.Component {
 
     const { users, cities } = this.props || {}
 
-    console.log({users, cities})
-
     return (
       <div className="users-list--container">
         <h3>Список пользователей</h3>

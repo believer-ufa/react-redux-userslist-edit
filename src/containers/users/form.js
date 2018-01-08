@@ -57,7 +57,7 @@ const months = {
   },
 }
 
-const currentYear = (new Date).getFullYear()
+const currentYear = (new Date()).getFullYear()
 const years = rangeRight(currentYear - 100, currentYear - 10)
 
 class SaveUserForm extends React.Component {
@@ -109,19 +109,19 @@ class SaveUserForm extends React.Component {
   }
 
   onSelectDay = event => {
-    const day = parseInt(event.target.value)
-    const [ _, month, year ] = this.state.data.birthday
+    const day = parseInt(event.target.value, 10)
+    const [ , month, year ] = this.state.data.birthday
     this.setBirthday([ day, month, year ])
   }
 
   onSelectMonth = event => {
-    const month = parseInt(event.target.value)
-    const [ day, _, year ] = this.state.data.birthday
+    const month = parseInt(event.target.value, 10)
+    const [ day, , year ] = this.state.data.birthday
     this.setBirthday([ day, month, year ])
   }
 
   onSelectYear = event => {
-    const year = parseInt(event.target.value)
+    const year = parseInt(event.target.value, 10)
     const [ day, month ] = this.state.data.birthday
     this.setBirthday([ day, month, year ])
   }
@@ -129,7 +129,7 @@ class SaveUserForm extends React.Component {
   onChangeName    = event => this.setData({ name    : event.target.value }, this.validateFields)
   onChangeAddress = event => this.setData({ address : event.target.value })
   onChangePhone   = event => this.setData({ phone   : event.target.value })
-  onSelectCity    = event => this.setData({ city_id : parseInt(event.target.value) })
+  onSelectCity    = event => this.setData({ city_id : parseInt(event.target.value, 10) })
 
   onClickToSave = event => {
 
