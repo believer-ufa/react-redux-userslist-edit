@@ -19,7 +19,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD:
-      const id = (max(state.ids) || 1) + 1
+      const id = (max(state.ids) || 0) + 1
       return {
         ...state,
         ids  : [ ...state.ids, id ],
