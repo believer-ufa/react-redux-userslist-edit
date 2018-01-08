@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    font-size: 18px;
+
+    a {
+        color: #BBB;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        transition: color .3s ease;
+
+        &.active {
+            color: #444;
+        }
+
+        & + a {
+            margin-left: 15px;
+        }
+    }
+}

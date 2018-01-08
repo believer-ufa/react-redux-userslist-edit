@@ -1,0 +1,4 @@
+.button.red {
+  // $text-color, $back-color
+  @include button(#fff, #ff3366);
+}

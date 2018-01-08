@@ -1,0 +1,16 @@
+{
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace" : true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    // Настройте стандартные маски для исключения файлов и папок. Этот параметр влияет, например, на скрытые и отображаемые файлы в проводнике.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+}

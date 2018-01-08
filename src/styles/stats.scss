@@ -1,0 +1,58 @@
+.loading-data {
+
+  margin: 100px 0;
+  text-align: center;
+  font-size: 22px;
+
+}
+
+.item-color {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.stats-table {
+
+  td, th {
+    padding: .5rem 1rem;
+  }
+
+  tbody tr {
+    transition: background-color .3s ease;
+    &:hover {
+      background: #a4c3ff33;
+    }
+  }
+}
+
+.legend--title {
+  background-color: white;
+  height: 1px;
+}
+
+.charts--container {
+  display: flex;
+  flex-direction: column;
+
+  .chart--container {
+    display: flex;
+    .chart--checkboxes {
+      flex: 0 0 auto;
+    }
+    .chart--main {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.recharts-cartesian-axis-tick {
+  font-size: 12px;
+}
+
+// .recharts-responsive-container {
+//   width: 100%;
+//   height: 300px;
+// }

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import counter from './counter'
+import users from './users'
+import cities from './cities'
 
 export default combineReducers({
   router: routerReducer,
-  counter
+  users,
+  cities,
 })
