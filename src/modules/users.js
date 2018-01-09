@@ -12,7 +12,7 @@ const initialState = {
     birthday : [ 22, 1, 1990 ],
     address  : 'ул. Гагарина',
     city_id  : 1,
-    phone    : '+7 906 376 57 24',
+    phone    : '+7 (906) 376-57-24',
   },
 }
 
