@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { get, range, rangeRight } from 'lodash'
 import { addUser, updateUser } from '../../modules/users'
 
+import MaskedInput from 'react-maskedinput'
+
 const months = {
   ids: range(1, 13),
   1: {
@@ -76,6 +78,7 @@ class SaveUserForm extends React.Component {
       validation: {
         name: undefined,
         birthday: undefined,
+        phone: undefined,
       }
     }
   }
@@ -85,7 +88,7 @@ class SaveUserForm extends React.Component {
   }
 
   validateFields = () => {
-    const { name, birthday: [ day, month, year ] } = this.state.data
+    const { name, phone, birthday: [ day, month, year ] } = this.state.data
 
     this.setState({
       validation : {
@@ -95,7 +98,12 @@ class SaveUserForm extends React.Component {
                   ? 'Имя не может быть пустым'
                   : undefined,
 
-        birthday : (day && month && year) ? undefined : 'Вы должны указать дату рождения'
+        birthday : (day && month && year) ? undefined : 'Вы должны указать дату рождения',
+        phone    : phone.length === 0
+                    ? undefined
+                    : phone.indexOf('_') >= 0
+                      ? 'Введите номер до конца'
+                      : undefined,
       }
     })
   }
@@ -128,12 +136,16 @@ class SaveUserForm extends React.Component {
 
   onChangeName    = event => this.setData({ name    : event.target.value }, this.validateFields)
   onChangeAddress = event => this.setData({ address : event.target.value })
-  onChangePhone   = event => this.setData({ phone   : event.target.value })
+  onChangePhone   = event => this.setData({ phone   : event.target.value }, this.validateFields)
   onSelectCity    = event => this.setData({ city_id : parseInt(event.target.value, 10) })
 
   onClickToSave = event => {
 
-    if (this.state.validation.name || this.state.validation.birthday) {
+    if (
+           this.state.validation.name
+        || this.state.validation.birthday
+        || this.state.validation.phone
+    ) {
       alert('Пожалуйста, исправьте ошибки в форме и повторите попытку.')
       return
     }
@@ -234,8 +246,13 @@ class SaveUserForm extends React.Component {
           </div>
 
           <div className="form-item">
-            <label>Телефон</label>
-            <input placeholder="+7 903 123 45 67" value={phone} type="text" name="phone" onChange={this.onChangePhone} />
+            <label>
+              Телефон
+              { validation.phone &&
+                <span className="error">{validation.phone}</span>
+              }
+            </label>
+            <MaskedInput mask="+7 (111) 111-11-11" name="phone" value={phone} placeholder="+7 (903) 123 45 67" onChange={this.onChangePhone}/>
           </div>
 
         </fieldset>
