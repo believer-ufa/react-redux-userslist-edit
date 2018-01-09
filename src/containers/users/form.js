@@ -162,7 +162,7 @@ class SaveUserForm extends React.Component {
   }
 
   render() {
-    const { id, user, cities } = this.props
+    const { match : { params: { id } }, user, cities } = this.props
     const {
       validation,
       data: {
